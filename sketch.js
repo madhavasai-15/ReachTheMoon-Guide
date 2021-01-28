@@ -11,6 +11,7 @@ var state = 0;
 var background_Color = 255;
 
 var Images = [];
+var control_left, control_right, control_up, control_down;
 
 function preload(){
 
@@ -29,6 +30,10 @@ function preload(){
 
   Images[1] = loadImage('Images/Image_01.png');
 
+  control_left = loadImage('Images/control/left.png');
+  control_down = loadImage('Images/control/down.png');
+  control_right = loadImage('Images/control/right.png');
+  control_up = loadImage('Images/control/up.png');
 };
 
 function setup() {
@@ -85,11 +90,41 @@ function draw() {
     heading();
 
     push();
-    image(Images[1], width-640/2, height/2, 640/2, 480/2);
+    image(Images[1], width-640/3, height/2+45, 640/2, 480/2);
     pop();
 
-    
+    var text1 = 'REACH THE MOON';
+    var text1_ = textWidth(text1);
+    var text_height = 45
+    fill(0, 191, 0);
+    textSize(64);
+    text(text1, 0, height/24+text_height*3);
 
+    var text2_ = textWidth(website);
+    fill(191, 0, 191);
+    textSize(64);
+    text(website, 0+text1_+text2_*1.4, height/24+text_height*3);
+
+    var text3_ = textWidth(directory);
+    fill(191, 191, 0);
+    textSize(64);
+    text(directory, 0+text1_+text2_*1.4+text3_/1.15, height/24+text_height*3);
+
+    var text4 = 'ReachTheMoon is a Game about a ball which had a goal about reaching the moon.';
+    fill(255);
+    textSize(64/2);
+    text(text4, 500, height, width/2, height/2);
+
+    fill(255);
+    image(control_left, width/6, height/1.8, width/20, height/10);
+    image(control_down, width/6+width/18, height/1.8, width/20, height/10);
+    image(control_right, width/6+width/9, height/1.8, width/20, height/10);
+    image(control_up, width/6+width/18, height/1.8-height/9, width/20, height/10);
+    
+    var text5 = 'use Arrow keys to move the Player!';
+    fill(255);
+    textSize(64/2);
+    text(text5, width/1.8, height/1.5, width/4, height/2);
   }
 };
 
